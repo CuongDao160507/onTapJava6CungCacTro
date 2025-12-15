@@ -17,8 +17,8 @@
         <td>{{ donHang.maDonHang }}</td>
         <td>{{ donHang.ngayDat }}</td>
         <td>{{ donHang.tongTien }}</td>
-        <td>{{ donHang.tenKhachHang }}</td>
-        <td>{{ donHang.diaChi }}</td>
+        <td>{{ donHang.khachHang.tenKhachHang }}</td>
+        <td>{{ donHang.khachHang.diaChi }}</td>
       </tr>
     </tbody>
   </table>

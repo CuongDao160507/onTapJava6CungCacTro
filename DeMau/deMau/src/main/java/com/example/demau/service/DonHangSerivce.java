@@ -18,6 +18,10 @@ public class DonHangSerivce {
     @Autowired
     private DonHangRepository donHangRepository;
 
+    public List<DonHang> getAllDisplay() {
+        return donHangRepository.findAll();
+    }
+
     public List<DonHangResponse> getAllDonHang() {
         return donHangRepository.findAll().stream().map(DonHangResponse::new).toList();
     }

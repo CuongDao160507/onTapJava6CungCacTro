@@ -21,7 +21,12 @@ public class DonHangController {
     @Autowired
     private DonHangSerivce donHangSerivce;
 
-    @GetMapping("/display")
+    @GetMapping("/getAllDisplay") //vue
+    public List<DonHang> getAllDisplay(){
+        return donHangSerivce.getAllDisplay();
+    }
+
+    @GetMapping("/display") //postman
     public List<DonHangResponse> display(){
         return donHangSerivce.getAllDonHang();
     }

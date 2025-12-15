@@ -31,25 +31,11 @@ public class SecurityConfig {
         UserDetails user = User
                 .withUsername("TH03230")
                 .password(passwordEncoder().encode("SD20204"))
+                .roles("ADMIN")
                 .build();
         userDetailsList.add(user);
         return new InMemoryUserDetailsManager(userDetailsList);
     }
-
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-//        httpSecurity
-//                .cors(Customizer.withDefaults())
-//                .csrf(csrf -> csrf.disable())
-//                .authorizeHttpRequests(
-//                        auth -> auth
-//                                .requestMatchers("/don-hang/display").permitAll()
-//                                .anyRequest().authenticated()
-//                )
-//                .formLogin(Customizer.withDefaults())
-//                .logout(Customizer.withDefaults());
-//        return httpSecurity.build();
-//    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -58,12 +44,14 @@ public class SecurityConfig {
                 .csrf(c -> c.disable()) // csrf - bao mat cho add, update, delete -> tat -> chay bth
                 .authorizeHttpRequests(
                         auth -> auth
-                                .requestMatchers("/don-hang/display").permitAll()
+                                .requestMatchers("/don-hang/getAllDisplay").permitAll()
+                                .requestMatchers("/don-hang/**").hasRole("ADMIN")
 //                                .requestMatchers("/cuongDao/register/**").permitAll()
 //                                .requestMatchers("/don-hang/delete").hasRole("ADMIN")
                                 .anyRequest().authenticated()  // duoi cung - ko can qtam - auto phai login moi dc vao.
 
                 )
+                .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
                 .logout(Customizer.withDefaults());
         return http.build();

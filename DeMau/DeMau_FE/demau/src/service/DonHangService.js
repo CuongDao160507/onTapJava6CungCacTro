@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:8080/don-hang/display"
+const baseUrl = "http://localhost:8080/don-hang/getAllDisplay"
 
 export const fetchAllDonHang = async () => {
     const response = await fetch(`${baseUrl}`)
