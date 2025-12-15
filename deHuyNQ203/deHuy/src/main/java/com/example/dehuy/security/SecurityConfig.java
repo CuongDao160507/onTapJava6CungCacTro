@@ -50,9 +50,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Cho phép file tĩnh và trang login
                         .requestMatchers("/login", "/logout", "/resources/**", "/css/**").permitAll()
+                        .requestMatchers("/employee/getAllDisplay").permitAll()
 
                         // USER và ADMIN đều được xem và thêm
-                        .requestMatchers("/employee/display", "/employee/getAllDisplay", "/employee/getAll").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/employee/display", "/employee/getAll").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/employee/add").hasAnyRole("USER", "ADMIN")
 
                         // Các quyền còn lại (Sửa, Xóa...) chỉ dành cho ADMIN

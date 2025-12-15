@@ -1,9 +1,7 @@
 <template>
-  <div></div>
+  <div>Test</div>
 </template>
 
-<script setup>
-import EmployeeView
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>
