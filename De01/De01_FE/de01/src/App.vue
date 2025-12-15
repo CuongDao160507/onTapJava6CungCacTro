@@ -1,9 +1,9 @@
 <script setup>
-import DemoView from "./components/DemoView.vue";
+import NhanVienView from "./components/NhanVienView.vue";
 </script>
 
 <template>
-  <DemoView></DemoView>
+  <NhanVienView></NhanVienView>
 </template>
 
 <style scoped></style>
